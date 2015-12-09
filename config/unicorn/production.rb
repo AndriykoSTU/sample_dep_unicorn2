@@ -12,7 +12,7 @@ timeout 30
 preload_app true
 
 listen '/tmp/unicorn.myapp.sock', backlog: 64
-=beginbefore_fork 
+before_fork 
 old_pid = '#{root}/tmp/pids/unicorn.pid.oldbin'
 if File.exists?(old_pid) && server.pid != old_pid
   begin
@@ -21,7 +21,8 @@ if File.exists?(old_pid) && server.pid != old_pid
     # someone else did our job for us
   end
 end
-=end
+
+
 before_fork do |server, worker|
   Signal.trap 'TERM' do
     puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
