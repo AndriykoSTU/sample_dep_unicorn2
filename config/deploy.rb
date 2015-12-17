@@ -4,7 +4,7 @@ lock '3.4.0'
 set :application, 'myapp'
 
 
-set :repo_url, 'https://AndriykoSTU:deusexmach1na@github.com/AndriykoSTU/sample_dep_unicorn2'
+set :repo_url, 'git@github.com:AndriykoSTU/sample_dep_unicorn2.git'
 set :branch, 'mongoDB'
 #ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
